@@ -31,7 +31,7 @@
     "build:testExtension": "rm -rf tests/e2e/extension-build && rollup -c tests/e2e/extension-src/rollup.config.js",
     "build:types": "tsc -p tsconfig.d.json",
     "build:watch": "npm run build:dev -- -w",
-    "prepublish": "run-s build:pro build:types",
+    "prepare": "run-s build:pro build:types",
     "postpublish": "rm -rf node_modules package-lock.json && pnpm i",
     "start": "run-p build:watch test:watch",
     "test": "jest",
