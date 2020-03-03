@@ -34,8 +34,7 @@
     "prepare": "run-s build:pro build:types",
     "postpublish": "rm -rf node_modules package-lock.json && pnpm i",
     "start": "run-p build:watch test:watch",
-    "test": "jest",
-    "preversion": "run-s test"
+    "test": "jest"
   },
   "dependencies": {
     "rxjs": "^6.5.4"
