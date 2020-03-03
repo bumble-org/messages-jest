@@ -1,7 +1,13 @@
 {
-  "name": "@bumble/messages",
-  "version": "1.0.0",
-  "description": "An API for Chrome extension messages that makes sense.",
+  "name": "@bumble/messages-jest",
+  "version": "0.0.0",
+  "description": "WIP: A mocking library for @bumble/messages",
+  "keywords": [
+    "jest",
+    "chrome extension",
+    "messages",
+    "testing"
+  ],
   "bugs": {
     "url": "https://github.com/bumble-org/messages-jest/issues"
   },
@@ -9,12 +15,6 @@
     "type": "github",
     "url": "https://github.com/bumble-org/messages-jest.git"
   },
-  "keywords": [
-    "jest",
-    "chrome extension",
-    "messages",
-    "testing"
-  ],
   "license": "MIT",
   "author": "Jack and Amy Steam <jacksteamdev@gmail.com>",
   "main": "lib/index.cjs.js",
@@ -28,19 +28,20 @@
     "build": "run-p build:dev build:types",
     "build:dev": "rollup -c --environment NODE_ENV:development",
     "build:pro": "rollup -c --environment NODE_ENV:production",
+    "build:testExtension": "rm -rf tests/e2e/extension-build && rollup -c tests/e2e/extension-src/rollup.config.js",
     "build:types": "tsc -p tsconfig.d.json",
     "build:watch": "npm run build:dev -- -w",
-    "build:testExtension": "rm -rf tests/e2e/extension-build && rollup -c tests/e2e/extension-src/rollup.config.js",
-    "start": "run-p build:watch test:watch",
-    "test:e2e": "run-s build:testExtension && jest e2e",
-    "test": "run-s test:quick test:e2e",
-    "test:quick": "jest --testPathIgnorePatterns=e2e",
-    "test:watch": "jest --testPathIgnorePatterns=e2e --watch",
-    "preversion": "run-s test:quick",
     "prepublish": "run-s build:pro build:types",
-    "postpublish": "rm -rf node_modules package-lock.json && pnpm i"
+    "postpublish": "rm -rf node_modules package-lock.json && pnpm i",
+    "start": "run-p build:watch test:watch",
+    "test": "jest",
+    "preversion": "run-s test"
+  },
+  "dependencies": {
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
+    "@bumble/messages": "^1.0.0",
     "@rollup/plugin-typescript": "^3.0.0",
     "@sucrase/jest-plugin": "^2.0.0",
     "@types/chrome": "0.0.98",
@@ -65,10 +66,8 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
+    "@bumble/messages": "^1.0.0",
     "jest": "^25.1.0",
-    "rxjs": "^6.5.4"
-  },
-  "dependencies": {
     "rxjs": "^6.5.4"
   }
 }

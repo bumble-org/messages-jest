@@ -1,6 +1,7 @@
 dependencies:
   rxjs: 6.5.4
 devDependencies:
+  '@bumble/messages': 1.0.0_jest@25.1.0+rxjs@6.5.4
   '@rollup/plugin-typescript': 3.0.0_21b31cbcd36eca497743abba92f188b5
   '@sucrase/jest-plugin': 2.0.0
   '@types/chrome': 0.0.98
@@ -161,6 +162,33 @@ packages:
     dev: true
     resolution:
       integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
+  /@bumble/chrome-rxjs/0.10.1:
+    dependencies:
+      rxjs: 6.5.4
+    dev: true
+    resolution:
+      integrity: sha512-S0ZhMfgaY8XDscJp0urbZjPg7ulhkty+jc8tLLyxR8AZn2lrqrUlsQd7mg3gZtiBx8Ng1TnzLF4URgsu2DYANQ==
+  /@bumble/jest-chrome/0.4.0_jest@25.1.0:
+    dependencies:
+      '@bumble/chrome-rxjs': 0.10.1
+      '@types/chrome': 0.0.92
+      jest: 25.1.0
+      rxjs: 6.5.4
+    dev: true
+    peerDependencies:
+      jest: ^24.9.0
+    resolution:
+      integrity: sha512-r/jqCGqiVchrErfGeZFoFoAdLsdrJGvEVF9UQqdq6zfy60Plrnof2p4Jh0Vgv1xn40vW/3QAnGnYtw8XHR8byQ==
+  /@bumble/messages/1.0.0_jest@25.1.0+rxjs@6.5.4:
+    dependencies:
+      '@bumble/jest-chrome': 0.4.0_jest@25.1.0
+      rxjs: 6.5.4
+    dev: true
+    peerDependencies:
+      jest: '*'
+      rxjs: ^6.5.4
+    resolution:
+      integrity: sha512-vbjcsqT6PI6/if/F54i9AwxEuHAbFoIP9PbFhLGWTKzqrsLjdes2KIO00Dz0hkN1I7yjR6o3vLfCg/QpA3R/qw==
   /@cnakazawa/watch/1.0.4:
     dependencies:
       exec-sh: 0.3.4
@@ -449,6 +477,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-jEFQ8L1tuvPjOI8lnpaf73oCJe+aoxL6ygqSy6c8LcW98zaC+4mzWuQIRCEvKeCOu+lbqdXcg4Uqmm1S8AP1tw==
+  /@types/chrome/0.0.92:
+    dependencies:
+      '@types/filesystem': 0.0.29
+    dev: true
+    resolution:
+      integrity: sha512-bTv1EljZ03bexRJwS5FwSZmrudtw+QNbzwUY2sxVtXWgtxk752G4I2owhZ+Mlzbf3VKvG+rBYSw/FnvzuZ4xOA==
   /@types/chrome/0.0.98:
     dependencies:
       '@types/filesystem': 0.0.29
@@ -4629,6 +4663,7 @@ packages:
     resolution:
       integrity: sha512-T39FNN1b6hCW4SOIk1XyTOWxtXdcen0t+XYrysQmChzSipvhBO8Bj0nK1ozAasdk24dNWuMZvr4k24nz+8HHLg==
 specifiers:
+  '@bumble/messages': ^1.0.0
   '@rollup/plugin-typescript': ^3.0.0
   '@sucrase/jest-plugin': ^2.0.0
   '@types/chrome': 0.0.98

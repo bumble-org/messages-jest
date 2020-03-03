@@ -9,7 +9,6 @@ module.exports = {
       tsConfig: 'tsconfig.test.json',
     },
   },
-  setupFilesAfterEnv: ['./tests/jest.setup.ts'],
   transform: {
     '.(js|jsx)': '@sucrase/jest-plugin',
   },
